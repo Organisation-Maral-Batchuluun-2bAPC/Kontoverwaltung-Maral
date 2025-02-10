@@ -6,11 +6,18 @@ Technologien im Einsatz:
 [![Java][java.com]][java-url]
 
 ```Java
+
+//some source code configuration
+
+```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Erstellte KLassen
+
 Main
 Kontoklassen
 Girokonto
 Sparkonto
 Kreditkonto
 
-```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
