@@ -8,13 +8,14 @@ public class Main {
 
     public static void main(String[] args) {
         while (true) {
-            System.out.println("Wähle:");
+            System.out.println("\n====|Kontoverwaltung|====");
             System.out.println("1. Konto anlegen");
             System.out.println("2. Übersicht");
             System.out.println("3. Einzahlen");
             System.out.println("4. Abheben");
-            System.out.println("5. Kontoauszug");
+            System.out.println("5. Konto Entfernen");
             System.out.println("0. Exit");
+            System.out.print("Wähle: ");
 
             switch (input.nextLine()) {
                 case "1":
@@ -30,7 +31,7 @@ public class Main {
                     abheben();
                     break;
                 case "5":
-                    kontoauszug();
+                    kontoEntfernen();
                     break;
                 case "0":
                     System.out.println("Programm beendet.");
@@ -43,10 +44,10 @@ public class Main {
         }
     }
     private static void kontoAnlegen() {
-        System.out.println("Gib den Kontoinhaber ein:");
+        System.out.print("Gib den Kontoinhaber ein: ");
         String kontoinhaber = input.nextLine();
 
-        System.out.println("Startbetrag eingeben:");
+        System.out.print("Startbetrag eingeben: ");
         double startbetrag = Double.parseDouble(input.nextLine());
 
         System.out.println("Kontoart wählen: (1) Girokonto, (2) Sparkonto, (3) Kreditkonto");
@@ -76,18 +77,18 @@ public class Main {
             System.out.println("Keine Konten vorhanden!");
         } else {
             for (Kontoklasse konto : konten) {
-                konto.kontoauszug();
+                System.out.println("Kontonummer: " + konto.getKontonummer() + ", Kontoinhaber: " + konto.kontoinhaber + ", Kontostand: " + konto.kontostand);
             }
         }
     }
 
     private static void einzahlen() {
-        System.out.println("Kontonummer eingeben:");
+        System.out.print("Kontonummer eingeben: ");
         int kontonummer = Integer.parseInt(input.nextLine());
 
         Kontoklasse konto = findeKonto(kontonummer);
         if (konto != null) {
-            System.out.println("Betrag eingeben:");
+            System.out.print("Betrag eingeben: ");
             double betrag = Double.parseDouble(input.nextLine());
             konto.einzahlen(betrag);
         } else {
@@ -96,12 +97,12 @@ public class Main {
     }
 
     private static void abheben() {
-        System.out.println("Kontonummer eingeben:");
+        System.out.print("Kontonummer eingeben: ");
         int kontonummer = Integer.parseInt(input.nextLine());
 
         Kontoklasse konto = findeKonto(kontonummer);
         if (konto != null) {
-            System.out.println("Betrag eingeben:");
+            System.out.print("Betrag eingeben: ");
             double betrag = Double.parseDouble(input.nextLine());
             konto.abheben(betrag);
         } else {
@@ -109,13 +110,14 @@ public class Main {
         }
     }
 
-    private static void kontoauszug() {
-        System.out.println("Kontonummer eingeben:");
+    private static void kontoEntfernen() {
+        System.out.print("Kontonummer eingeben: ");
         int kontonummer = Integer.parseInt(input.nextLine());
 
         Kontoklasse konto = findeKonto(kontonummer);
         if (konto != null) {
-            konto.kontoauszug();
+            konten.remove(konto);
+            System.out.println("Konto mit Kontonummer " + kontonummer + " wurde entfernt.");
         } else {
             System.out.println("Konto nicht gefunden!");
         }
