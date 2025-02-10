@@ -15,14 +15,11 @@ Technologien im Einsatz:
 ## Erstellte KLassen
 
 ```
-Main
-Kontoklassen
-Girokonto
-Sparkonto
-Kreditkonto
-//some source code configuration
-//some source code configuration
-//some source code configuration
+//Main
+//Kontoklassen
+//Girokonto
+//Sparkonto
+//Kreditkonto
 
 ```
 
